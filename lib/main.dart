@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,113 +34,83 @@ class _HomeState extends State<Home> {
         centerTitle: true,
       ),
       body:Column(
-        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text("0"),
-          SizedBox(
-            height:200,
-            width: 250,
+          Expanded(
+            flex: 3,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("%")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("1")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("4")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("7")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("ac")),
-
-                  ],
-                ),
-                Column(
-
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("()")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("2")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("5")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("8")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("0")),
-                  ],
-                ),
-                Column(
-
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("-")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("3")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("6")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("9")),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text(".")),
-                  ],
-                ),
-                Column(
-
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text("*")),
-                    SizedBox(
-                      height: 80,
-                      child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("+")),
-                    ),
-                    SizedBox(
-                      height: 80,
-                      child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("=")),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: Text("0", style: TextStyle(fontSize: 35.0),),
+                )],
           )
-          
+
+          ),
+          Expanded(
+            flex: 4,
+            child: Row(children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    but("/"),
+                    but("1"),
+                    but("4"),
+                    but("7"),
+                    but("ac")],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    but("()"),
+                    but("2"),
+                    but("5"),
+                    but("8"),
+                    but("0")
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    but("*"),
+                    but("3"),
+                    but("6"),
+                    but("9"),
+                    but(".")
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    but("-"),
+                    but("+", fl: 2),
+                    but("=", fl: 2),
+                  ],
+                ),
+              ),
+    ],))
         ],
       ),
 
     );
   }
 }
+Widget but (String name,{int fl = 1}){
+  return Expanded(flex: fl,child: Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+            minimumSize:
+              Size(double.infinity, double.infinity),
+        ),
+        child: Text(name, style: TextStyle(fontSize: 14),)
+    ),
+  ));
+}
+
 
 
